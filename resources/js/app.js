@@ -14,7 +14,7 @@ const apolloProvider = new VueApollo({
 Vue.use(VueApollo);
 
 require('./bootstrap');
-
+require('./router');
 
 
 
