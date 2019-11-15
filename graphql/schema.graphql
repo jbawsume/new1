@@ -9,8 +9,55 @@ type Query {
     user(id: ID @eq): User @find
 
     books: [Book] @all
+    book(id: ID @eq): Book @find
+    booksByFeatured( featured: Boolean! @eq): [Book] @all
+    someComplexQuery(search :String!): [Book]
+
+    categories: [Category] @all
+    category(id: ID @eq): Category @find
+}
+
+type Mutation{
+    createCategory(
+      name: String @rules(apply:["required", "unique:categories,name"])
+    ): Category @create
+
+    updateCategory(
+      id: ID @rules(apply: ["required"])
+      name: String @rules(apply:["required", "unique:categories,name"])
+    ): Category @update
+
+    deleteCategory(
+      id: ID! @rules(apply: ["required"])
+    ): Category @delete
+
+    createBook(
+      title: String! @rules(apply:["required"])
+      author: String! @rules(apply:["required"])
+      image:String
+      link: String
+      description: String
+      featured: Boolean
+      category_id: Int!
+    ): Book @create
+
+    updateBook(
+      id: ID @rules(apply: ["required"])
+      title: String! @rules(apply:["required"])
+      author: String! @rules(apply:["required"])
+      image :String
+      link: String
+      description: String
+      featured: Boolean
+      category_id: Int!
+    ): Book @update
+
+    deleteBook(
+      id: ID! @rules(apply: ["required"])
+    ): Book @delete
 
 }
+
 
 type User {
     id: ID!
@@ -26,7 +73,7 @@ type Book {
   author: String!
   image :String
   link: String
-  description: string
+  description: String
   featured: Boolean
   category: Category! @belongsTo
 }

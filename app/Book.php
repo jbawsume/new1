@@ -8,7 +8,7 @@ class Book extends Model
 {
   protected $guarded = [];
 
-  public function books(){
+  public function category(){
     return $this->belongsTo(Category::class);
   }
 }

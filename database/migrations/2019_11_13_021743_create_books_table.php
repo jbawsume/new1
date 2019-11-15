@@ -17,9 +17,9 @@ class CreateBooksTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('author');
-            $table->string('image')->nullable;
-            $table->text('description')->nullable;
-            $table->string('link')->nullable;
+            $table->string('image')->nullable();
+            $table->text('description')->nullable();
+            $table->string('link')->nullable();
             $table->string('featured')->default(false);
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade');
