@@ -2,13 +2,23 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueApollo from 'vue-apollo';
 
+import ApolloClient from "apollo-boost";
+
+
+const apolloProvider = new VueApollo({
+  defaultClient: new ApolloClient({
+    uri: "graphql"
+  })
+});
+
+Vue.use(VueApollo);
 
 require('./bootstrap');
 
 
 
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('home', require('./components/Home.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -18,4 +28,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    apolloProvider,
 });
