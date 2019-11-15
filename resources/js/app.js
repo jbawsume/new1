@@ -14,7 +14,8 @@ const apolloProvider = new VueApollo({
 Vue.use(VueApollo);
 
 require('./bootstrap');
-require('./router');
+
+import Routes from './routes.js';
 
 
 
@@ -29,4 +30,5 @@ Vue.component('home', require('./components/Home.vue').default);
 const app = new Vue({
     el: '#app',
     apolloProvider,
+    router:Routes,
 });
