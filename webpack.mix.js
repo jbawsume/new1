@@ -16,7 +16,7 @@ mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
 
 
-   mix.webpackConfig({
+mix.webpackConfig({
      module: {
          rules: [
              {
@@ -27,3 +27,4 @@ mix.js('resources/js/app.js', 'public/js')
          ]
      }
  });
+ 
