@@ -32,7 +32,7 @@ const Book = Vue.component('book', require('./components/Book.vue').default);
 
 const routes = [
     { path: '/', component: Home },
-    { path: '/books', component: Book }
+    { path: '/books/:id', component: Book }
   ]
 
 const router = new VueRouter({

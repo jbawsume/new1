@@ -31,8 +31,16 @@
                        <!-- Some content -->
                        <div v-if="isLoading">Loading....</div>
                        <div v-else>
-                         <div href="#" v-for="book of data.books" :key="book.id" >
-                          {{ book.id }}.{{ book.title}}
+                         <div class="">
+                           <div v-for="book of data.books" :key="book.id">
+                             <router-link :to="`/books/${book.id}`" >
+                               {{ book.id }}.{{ book.title}}
+                             </router-link>
+                             <div >
+                               {{book.author}}
+                             </div>
+                             <img :src="book.image" alt="" class="img">
+                           </div>
                          </div>
                        </div>
                     </template>
@@ -44,8 +52,16 @@
                        <!-- Some content -->
                        <div v-if="isLoading">Loading....</div>
                        <div v-else>
-                         <div href="#" v-for="book of data.booksByFeatured" :key="book.id" >
-                          {{ book.id }}.{{ book.title}}
+                         <div class="">
+                           <div v-for="book of data.booksByFeatured" :key="book.id" >
+                             <router-link :to="`/books/${book.id}`">
+                               {{ book.id }}.{{ book.title}}
+                             </router-link>
+                             <div >
+                               {{book.author}}
+                             </div>
+                             <img :src="book.image" alt="" class="img">
+                           </div>
                          </div>
                        </div>
                     </template>
@@ -57,8 +73,16 @@
                        <!-- Some content -->
                        <div v-if="isLoading">Loading....</div>
                        <div v-else>
-                         <div href="#" v-for="book of data.category.books" :key="book.id" >
-                          {{ book.id }}.{{ book.title}}
+                         <div class="">
+                           <div v-for="book of data.category.books" :key="book.id" >
+                             <router-link :to="`/books/${book.id}`">
+                               {{ book.id }}.{{ book.title}}
+                             </router-link>
+                             <div >
+                               {{book.author}}
+                             </div>
+                             <img :src="book.image" alt="" class="img">
+                           </div>
                          </div>
                        </div>
                     </template>
@@ -108,6 +132,11 @@ import booksFeaturedQuery from './graphql/queries/BooksFeatured.gql'
 <style>
 .link-margin{
     margin-right:15px
+}
+.img{
+  width: 100px;
+  height:70;
+  object-fit:cover;
 }
 
 </style>
