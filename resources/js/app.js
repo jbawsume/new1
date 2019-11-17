@@ -22,6 +22,7 @@ const apolloProvider = new VueApollo({
 //const Foo = { template: '<div>foo</div>' }
 
 const Home = Vue.component('home', require('./components/Home.vue').default);
+const AddBook = Vue.component('book', require('./components/AddBook.vue').default);
 const Book = Vue.component('book', require('./components/Book.vue').default);
 
 //const Home = Vue.component("home", () => import("./components/Home.vue").default);
@@ -32,11 +33,13 @@ const Book = Vue.component('book', require('./components/Book.vue').default);
 
 const routes = [
     { path: '/', component: Home },
-    { path: '/books/:id', component: Book }
+    { path: '/books/add', component: AddBook },
+		{ path: '/books/:id', component: Book }
   ]
 
 const router = new VueRouter({
     //mode: 'history',
+		//base:"/new1/public/",
     //base: process.env.BASE_URL,
     //base: "localhost/new1/public",
     routes // short for `routes: routes`
