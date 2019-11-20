@@ -6,6 +6,7 @@
                     <div class="card-header">Example Component</div>
 
                     <div class="card-body">
+                    <router-link to="/books/add">Add Book</router-link>
                     <ApolloQuery :query="categoriesQuery">
                           <template slot-scope="{ result: { data, loading },isLoading }">
                            <!-- Some content -->

@@ -23,6 +23,7 @@ const apolloProvider = new VueApollo({
 
 const Home = Vue.component('home', require('./components/Home.vue').default);
 const AddBook = Vue.component('book', require('./components/AddBook.vue').default);
+const EditBook = Vue.component('book', require('./components/EditBook.vue').default);
 const Book = Vue.component('book', require('./components/Book.vue').default);
 
 //const Home = Vue.component("home", () => import("./components/Home.vue").default);
@@ -34,7 +35,8 @@ const Book = Vue.component('book', require('./components/Book.vue').default);
 const routes = [
     { path: '/', component: Home },
     { path: '/books/add', component: AddBook },
-		{ path: '/books/:id', component: Book }
+		{ path: '/books/:id', component: Book },
+    { path: '/books/:id/edit', component: EditBook }
   ]
 
 const router = new VueRouter({
