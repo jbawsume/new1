@@ -13,7 +13,7 @@
                {{data.book.description}}
              </div>
              <router-link :to="`/books/${data.book.id}/edit`" href="#" class="link-margin">Edit</router-link>
-             <a href="#" class="link-margin">Delete</a>
+             <a href="#" @click.prevent="deleteBook" class="link-margin">Delete</a>
            </div>
         </template>
   </ApolloQuery>
@@ -21,3 +21,25 @@
   </div>
 
 </template>
+
+<script>
+import deleteBook from './graphql/mutations/DeleteBook.gql'
+
+export default{
+  methods:{
+    deleteBook(){
+    this.$apollo.mutate({
+      mutation:deleteBook,
+      variables:{
+        id: this.$route.params.id,
+      }
+    }).then(data=>{
+      console.log(data)
+      this.$router.push('/')
+    })
+    }
+  }
+}
+
+
+</script>

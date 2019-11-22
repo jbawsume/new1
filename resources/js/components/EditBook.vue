@@ -68,15 +68,11 @@ export default {
         query: book,
         // Reactive parameters
         variables () {
-        if(this.$route && this.$route.params){
-        return{
-          id : this.$route.params.id
-        }
-        }
-          // Use vue reactive properties here
-            return {
-              message: this.pingInput,
+          if(this.$route && this.$route.params){
+            return{
+              id : this.$route.params.id
             }
+          }
         },
 
         result ({ data, loading, networkStatus }) {
@@ -87,7 +83,7 @@ export default {
               this.description = data.book.description,
               this.featured = data.book.featured,
               this.category = data.book.category.id
-        }
+        },
       },
     },
   methods:{
